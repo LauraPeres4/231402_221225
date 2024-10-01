@@ -36,7 +36,7 @@ namespace _231402_221225
             }
         }
 
-        public static void FecharBanco()
+        public static void FecharConexao()
         {
             try
             {

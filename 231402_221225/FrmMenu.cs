@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _231402_221225.Views;
 
 namespace _231402_221225
 {
@@ -20,6 +21,12 @@ namespace _231402_221225
         private void FrmMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCidades form = new FrmCidades();
+            form.Show();
         }
     }
 }
