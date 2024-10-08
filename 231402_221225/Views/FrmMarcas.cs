@@ -11,29 +11,27 @@ using System.Windows.Forms;
 
 namespace _231402_221225.Views
 {
-    public partial class FrmCidades : Form
+    public partial class FrmMarcas : Form
     {
-        Cidade c;
-        public FrmCidades()
+        Marca m;
+        public FrmMarcas()
         {
             InitializeComponent();
         }
-
         void limpaControles()
         {
             txtID.Clear();
-            txtNome.Clear();
-            txtUF.Clear();
+            txtMarca.Clear();
             txtPesquisa.Clear();
         }
-        
+
         void carregarGrid(string pesquisa)
         {
-            c = new Cidade()
+            m = new Marca()
             {
                 nome = pesquisa
             };
-            dgvCidades.DataSource = c.Consultar();
+            dgvMarca.DataSource = m.Consultar();
 
         }
 
@@ -119,6 +117,52 @@ namespace _231402_221225.Views
         }
 
         private void FrmCidades_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMarcas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    private void FrmMarcas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

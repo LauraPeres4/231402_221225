@@ -25,7 +25,7 @@ namespace _231402_221225
 
             try
             {
-                Conexao = new MySqlConnection("Server=localhost;port=3307;uid=root;pwd=etecjau");
+                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau");
 
                 Conexao.Open();
 
@@ -54,7 +54,7 @@ namespace _231402_221225
             {
                 AbrirConexao();
 
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTIS vendas; USE vendas", Conexao);
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS Projeto; USE Projeto", Conexao);
 
                 Comando.ExecuteNonQuery();
 
@@ -64,7 +64,12 @@ namespace _231402_221225
                                            "uf char (02))", Conexao);
                 Comando.ExecuteNonQuery();
 
-                FecharBanco();
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marca " +
+                                           "(id integer auto_increment primary key, " +
+                                           "nome char(40), ", Conexao);
+                Comando.ExecuteNonQuery();
+
+                FecharConexao();
             }
             catch (Exception e)
             {
@@ -72,6 +77,7 @@ namespace _231402_221225
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
         }
 
         private void FrmMenu_Load(object sender, EventArgs e)

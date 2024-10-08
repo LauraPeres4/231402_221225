@@ -183,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(823, 450);
             this.ControlBox = false;
             this.Controls.Add(this.dgvCidades);
             this.Controls.Add(this.Pesquisar);
@@ -203,7 +203,7 @@
             this.Name = "FrmCidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cidades";
-            this.Load += new System.EventHandler(this.FrmCidades_Load);
+            this.Load += new System.EventHandler(this.FrmCidades_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

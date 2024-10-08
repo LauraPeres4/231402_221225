@@ -24,7 +24,7 @@ namespace _231402_221225.Models
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("INSERT INTO cidades (nome, uf) VALUES (@nome, @uf"), Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO Cidade (nome, uf) VALUES (@nome, @uf)", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@uf", uf);
@@ -44,7 +44,7 @@ namespace _231402_221225.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("Update cidades set nome = @nome, uf = @uf where id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Update Cidade set nome = @nome, uf = @uf where id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@uf", uf);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
@@ -65,7 +65,7 @@ namespace _231402_221225.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("Delete from cidades where id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Delete from Cidade where id = @id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
@@ -84,9 +84,10 @@ namespace _231402_221225.Models
                 {
                     Banco.AbrirConexao();
 
-                    Banco.Comando = new MySqlCommand("SELECT * from Cidades where nome like @nome " + "order by nome", Banco.Conexao);
+                    Banco.Comando = new MySqlCommand("SELECT * from Cidade where nome like @nome " + " order by nome", Banco.Conexao);
 
                     Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
+                    Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                     Banco.datTabela = new DataTable();
                     Banco.Adaptador.Fill(Banco.datTabela);
                     Banco.FecharConexao();

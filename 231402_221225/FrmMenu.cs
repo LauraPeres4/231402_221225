@@ -20,7 +20,7 @@ namespace _231402_221225
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-
+            Banco.CriarBanco();
         }
 
         private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
