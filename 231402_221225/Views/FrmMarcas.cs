@@ -47,11 +47,11 @@ namespace _231402_221225.Views
 
             if (MessageBox.Show("Deseja excluir cidade?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                c = new Cidade()
+                m = new Marca()
                 {
                     id = int.Parse(txtID.Text)
                 };
-                c.Excluir();
+                m.Excluir();
 
                 limpaControles();
                 carregarGrid("");
@@ -60,14 +60,13 @@ namespace _231402_221225.Views
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == String.Empty) return;
+            if (txtMarca.Text == String.Empty) return;
 
-            c = new Cidade()
+            m = new Marca()
             {
-                nome = txtNome.Text,
-                uf = txtUF.Text
-            };
-            c.Incluir();
+                nome = txtMarca.Text
+            }; 
+            m.Incluir();
 
             limpaControles();
             carregarGrid("");
@@ -76,34 +75,11 @@ namespace _231402_221225.Views
 
         private void dgvCidades_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCidades.Rows.Count > 0)
+            if (dgvMarca.Rows.Count > 0)
             {
-                txtID.Text = dgvCidades.CurrentRow.Cells["id"].Value.ToString();
-                txtNome.Text = dgvCidades.CurrentRow.Cells["nome"].Value.ToString();
-                txtUF.Text = dgvCidades.CurrentRow.Cells["uf"].Value.ToString();
+                txtID.Text = dgvMarca.CurrentRow.Cells["id"].Value.ToString();
+                txtMarca.Text = dgvMarca.CurrentRow.Cells["nome"].Value.ToString();
             }
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            if (txtID.Text == String.Empty) return;
-
-            c = new Cidade()
-            {
-                id = int.Parse(txtID.Text),
-                nome = txtNome.Text,
-                uf = txtUF.Text
-            };
-            c.Alterar();
-
-            limpaControles();
-            carregarGrid("");
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            limpaControles();
-            carregarGrid("");
         }
 
         private void Pesquisar_Click(object sender, EventArgs e)
@@ -130,12 +106,6 @@ namespace _231402_221225.Views
         {
 
         }
-    }
-
-    private void FrmMarcas_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -157,14 +127,54 @@ namespace _231402_221225.Views
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnInserir_Click_1(object sender, EventArgs e)
         {
+            if (txtMarca.Text == String.Empty) return;
 
+            m = new Marca()
+            {
+                nome = txtMarca.Text
+            };
+            m.Incluir();
+
+            limpaControles();
+            carregarGrid("");
+        }
+
+        private void btnAlterar_Click_1(object sender, EventArgs e)
+        {
+            if (txtID.Text == String.Empty) return;
+
+            m = new Marca()
+            {
+                id = int.Parse(txtID.Text),
+                nome = txtMarca.Text
+            };
+            m.Alterar();
+
+            limpaControles();
+            carregarGrid("");
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            limpaControles();
+            carregarGrid("");
+        }
+
+        private void btnFechar_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            carregarGrid(txtPesquisa.Text);
         }
     }
 }

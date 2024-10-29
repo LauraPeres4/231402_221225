@@ -54,20 +54,16 @@ namespace _231402_221225
             {
                 AbrirConexao();
 
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS Projeto; USE Projeto", Conexao);
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS Projeto;"+"USE Projeto", Conexao);
 
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Cidade " +
-                                           "(id integer auto_increment primary key, " +
-                                           "nome char(40), " +
-                                           "uf char (02))", Conexao);
+                Comando = new MySqlCommand("Use Projeto;"+ "CREATE TABLE IF NOT EXISTS Cidade(id integer auto_increment primary key,nome char(40),uf char (02));CREATE TABLE IF NOT EXISTS Marca(id integer auto_increment primary key,nome char(40));",
+                                    Conexao);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marca " +
-                                           "(id integer auto_increment primary key, " +
-                                           "nome char(40), ", Conexao);
-                Comando.ExecuteNonQuery();
+                
+                  
 
                 FecharConexao();
             }

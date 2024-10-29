@@ -23,7 +23,29 @@ namespace _231402_221225
             Banco.CriarBanco();
         }
 
+        private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCidades form = new FrmCidades();
+            form.Show();
+        }
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarcas form = new FrmMarcas();
+            form.Show();
+        }
+
         private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void marcaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmMarcas form = new FrmMarcas();
+            form.Show();
+        }
+
+        private void cidadesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             FrmCidades form = new FrmCidades();
             form.Show();
