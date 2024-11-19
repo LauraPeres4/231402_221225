@@ -41,6 +41,8 @@
             this.dgvMarca = new System.Windows.Forms.DataGridView();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnPesquisa = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCNPJ = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +125,7 @@
             // 
             this.txtMarca.Location = new System.Drawing.Point(44, 97);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(655, 20);
+            this.txtMarca.Size = new System.Drawing.Size(191, 20);
             this.txtMarca.TabIndex = 8;
             this.txtMarca.TextChanged += new System.EventHandler(this.txtMarca_TextChanged);
             // 
@@ -161,12 +163,32 @@
             this.btnPesquisa.UseVisualStyleBackColor = true;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(274, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "CNPJ";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // txtCNPJ
+            // 
+            this.txtCNPJ.Location = new System.Drawing.Point(277, 96);
+            this.txtCNPJ.Name = "txtCNPJ";
+            this.txtCNPJ.Size = new System.Drawing.Size(100, 20);
+            this.txtCNPJ.TabIndex = 14;
+            this.txtCNPJ.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
             // FrmMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPesquisa);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.dgvMarca);
@@ -205,5 +227,7 @@
         private System.Windows.Forms.DataGridView dgvMarca;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCNPJ;
     }
 }

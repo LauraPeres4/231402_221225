@@ -1,26 +1,27 @@
-﻿using System;
-using MySql.Data.MySqlClient;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace _231402_221225.Models
 {
-    public class Marca
+    public class Categoria
     {
         public int id { get; set; }
         public string nome { get; set; }
-
-        public string cnpj { get; set; }
 
         public void Incluir()
         {
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("INSERT INTO Marca (nome, cnpj) VALUES (@nome, @cnpj)", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO Categoria (nome) VALUES (@nome)", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@cnpj", cnpj);
 
 
                 Banco.Comando.ExecuteNonQuery();
@@ -39,10 +40,8 @@ namespace _231402_221225.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("Update Marca set nome = @nome, cnpj = @cnpj where id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Update Categoria set nome = @nome where id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@cnpj", cnpj);
-
                 Banco.Comando.ExecuteNonQuery();
 
                 Banco.FecharConexao();
@@ -59,7 +58,7 @@ namespace _231402_221225.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("Delete from Marca where id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Delete from Categoria where id = @id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
@@ -78,7 +77,7 @@ namespace _231402_221225.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT * from Marca where nome like @nome " + " order by nome", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("SELECT * from Categoria where nome like @nome " + " order by nome", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
@@ -100,4 +99,3 @@ namespace _231402_221225.Models
 
     }
 }
-

@@ -58,7 +58,7 @@ namespace _231402_221225
 
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("Use Projeto;"+ "CREATE TABLE IF NOT EXISTS Cidade(id integer auto_increment primary key,nome char(40),uf char (02));CREATE TABLE IF NOT EXISTS Marca(id integer auto_increment primary key,nome char(40));",
+                Comando = new MySqlCommand("Use Projeto;"+ "CREATE TABLE IF NOT EXISTS Cidade(id integer auto_increment primary key,nome char(40),uf char (02));CREATE TABLE IF NOT EXISTS Marca(id integer auto_increment primary key,nome char(40), cnpj varchar(14));CREATE TABLE IF NOT EXISTS Categoria(id auto_increment primary key, nome char(40));",
                                     Conexao);
                 Comando.ExecuteNonQuery();
 

@@ -176,5 +176,15 @@ namespace _231402_221225.Views
         {
             carregarGrid(txtPesquisa.Text);
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
