@@ -20,6 +20,23 @@ namespace _231402_221225.Views
             InitializeComponent();
         }
 
+        void limpaControles()
+        {
+            txtID.Clear();
+            txtNome.Clear();
+            txtPesquisa.Clear();
+        }
+
+        void carregarGrid(string pesquisa)
+        {
+            ct = new Categoria()
+            {
+                nome = pesquisa
+            };
+            dgvCategorias.DataSource = ct.Consultar();
+
+        }
+     
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -43,11 +60,12 @@ namespace _231402_221225.Views
             limpaControles();
             carregarGrid("");
         }
-
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
             limpaControles();
             carregarGrid("");
         }
+
+
     }
 }

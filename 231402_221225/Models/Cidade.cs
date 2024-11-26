@@ -13,7 +13,7 @@ namespace _231402_221225.Models
 {
     public class Cidade
     {
-        public int id {  get; set; }
+        public int id { get; set; }
 
         public string nome { get; set; }
 
@@ -57,7 +57,7 @@ namespace _231402_221225.Models
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
         }
         public void Excluir()
         {
@@ -78,31 +78,34 @@ namespace _231402_221225.Models
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            public DataTable Consultar()
+        public DataTable Consultar()
+        {
+            try
             {
-                try
-                {
-                    Banco.AbrirConexao();
+                Banco.AbrirConexao();
 
-                    Banco.Comando = new MySqlCommand("SELECT * from Cidade where nome like @nome " + " order by nome", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome, " +
+                                                 "ci.uf FROM Clientes cl inner join Cidades ci on (ci.id = cl.idCidade) " +
+                                                 "where cl.nome like ?Nome ordey by cl.nome", Banco.Conexao);
 
-                    Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
-                    Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
-                    Banco.datTabela = new DataTable();
-                    Banco.Adaptador.Fill(Banco.datTabela);
-                    Banco.FecharConexao();
-                    return Banco.datTabela;
-
-             
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-                }
+                Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
+                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
+                Banco.datTabela = new DataTable();
+                Banco.Adaptador.Fill(Banco.datTabela);
+                Banco.FecharConexao();
+                return Banco.datTabela;
 
 
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+ 
 
         }
-}
+    }
+
