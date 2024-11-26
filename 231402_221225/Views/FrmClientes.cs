@@ -70,7 +70,18 @@ namespace _231402_221225.Views
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dgvClientes.RowCount > 0)
+            {
+                txtId.Text = dgvClientes.CurrentRow.Cells["id"].Value.ToString();
+                txtNome.Text = dgvClientes.CurrentRow.Cells["nome"].Value.ToString();
+                cboCidades.Text = dgvClientes.CurrentRow.Cells["cidade"].Value.ToString();
+                txtUF.Text = dgvClientes.CurrentRow.Cells["UF"].Value.ToString();
+                chkVenda.Checked = (bool)dgvClientes.CurrentRow.Cells["venda"].Value;
+                mskCPF.Text = dgvClientes.CurrentRow.Cells["cpf"].Value.ToString();
+                dtpDataNasc.Text = dgvClientes.CurrentRow.Cells["dataNasc"].Value.ToString();
+                txtRenda.Text = dgvClientes.CurrentRow.Cells["renda"].Value.ToString();
+                picFoto.ImageLocation = dgvClientes.CurrentRow.Cells["foto"].Value.ToString();
+            }
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
